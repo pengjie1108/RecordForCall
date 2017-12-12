@@ -10,7 +10,7 @@
 #import <CoreTelephony/CTCall.h>
 #import <CoreTelephony/CTCallCenter.h>
 #import <CallKit/CallKit.h>
-#import "LVRecordTool.h"
+#import "PJRecordTool.h"
 
 @interface AppDelegate ()<CXCallObserverDelegate>
 
@@ -56,13 +56,13 @@
     if (call.hasEnded) {
         NSLog(@"挂断了电话咯   Call has been disconnected");
           dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-          [[LVRecordTool sharedRecordTool] resumeRecording];
+          [[PJRecordTool sharedRecordTool] resumeRecording];
           });
     }else if (call.hasConnected){
         NSLog(@"电话通了Call has just been connected");
     }else if(call.onHold){
         NSLog(@"来电话了Call is incoming");
-        [[LVRecordTool sharedRecordTool] pauseRecording];
+        [[PJRecordTool sharedRecordTool] pauseRecording];
     }else if (call.outgoing){
          NSLog(@"电话不通");
     }

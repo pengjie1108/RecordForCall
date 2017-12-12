@@ -1,20 +1,20 @@
 //
-//  LVRecordTool.m
+//  PJRecordTool.m
 //  RecordAndPlayVoice
 //
 //  Created by pengjie on 2016/11/27.
 //  Copyright © 2016年 pengjie. All rights reserved.
 //
 
-//#define LVRecordFielName currentDateString\
+//#define PJRecordFielName currentDateString\
 //NSDate *currentDate = [NSDate date];\
 //NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];\
 //[dateFormatter setDateFormat:@"MM-dd HH:mm"];\
 //NSString *currentDateString = [dateFormatter stringFromDate:currentDate];
 
-#import "LVRecordTool.h"
+#import "PJRecordTool.h"
 
-@interface LVRecordTool () <AVAudioRecorderDelegate>
+@interface PJRecordTool () <AVAudioRecorderDelegate>
 
 
 /** 录音文件地址 */
@@ -31,13 +31,13 @@
 
 @end
 
-@implementation LVRecordTool
+@implementation PJRecordTool
 
 - (void)startRecording {
     
     // 录音时停止播放 删除曾经生成的文件
     [self stopPlaying];
-//    [self destructionRecordingFile];
+    //    [self destructionRecordingFile];
     // 真机环境下需要的代码
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *sessionError;

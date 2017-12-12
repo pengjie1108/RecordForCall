@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="LaK-DL-s0E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="LaK-DL-s0E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,10 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Nc-xMy">
-                                <rect key="frame" x="127" y="196" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="录音和上传">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5n-Nc-xMy">
+                                <rect key="frame" x="133.5" y="318.5" width="108" height="30"/>
+                                <state key="normal" title="点此进入录音器">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -34,12 +33,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="V5n-Nc-xMy" firstAttribute="centerX" secondItem="lyr-Mg-zHS" secondAttribute="centerX" id="67l-s9-GEv"/>
+                            <constraint firstItem="V5n-Nc-xMy" firstAttribute="centerY" secondItem="lyr-Mg-zHS" secondAttribute="centerY" id="jlg-hO-lgN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SRd-Ib-Mnc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2T-WX-nhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="233"/>
+            <point key="canvasLocation" x="745.5" y="232.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -68,9 +71,9 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6v-4C-r3b">
-                                <rect key="frame" x="38" y="269" width="100" height="100"/>
+                                <rect key="frame" x="38" y="269" width="100" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Hv5-hz-hsZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hv5-hz-hsZ"/>
                                     <constraint firstAttribute="width" constant="100" id="mI3-bs-VhL"/>
                                 </constraints>
                                 <state key="normal" title="开始录音"/>
@@ -79,10 +82,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Taj-BC-Ocd">
-                                <rect key="frame" x="201" y="269" width="100" height="100"/>
+                                <rect key="frame" x="201" y="269" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Mid-s3-sDq"/>
-                                    <constraint firstAttribute="height" constant="100" id="Vr8-G6-cTj"/>
+                                    <constraint firstAttribute="height" constant="30" id="Vr8-G6-cTj"/>
                                 </constraints>
                                 <state key="normal" title="停止录音"/>
                                 <connections>
@@ -98,18 +101,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JH-pI-3Fk">
-                                <rect key="frame" x="63" y="388" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="zanting"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JH-pI-3Fk">
+                                <rect key="frame" x="38" y="304" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oLd-JU-cYG"/>
+                                </constraints>
+                                <state key="normal" title="暂停"/>
                                 <connections>
                                     <action selector="zanting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEN-8A-BZv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-gx-zJO">
-                                <rect key="frame" x="236" y="388" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="jixu"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-gx-zJO">
+                                <rect key="frame" x="201" y="304" width="101" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QIj-Ju-sj8"/>
+                                </constraints>
+                                <state key="normal" title="继续"/>
                                 <connections>
                                     <action selector="jixu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iwB-IQ-stU"/>
                                 </connections>
@@ -117,18 +124,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5JH-pI-3Fk" firstAttribute="top" secondItem="G6v-4C-r3b" secondAttribute="bottom" constant="5" id="7Kn-4M-sOL"/>
+                            <constraint firstItem="5JH-pI-3Fk" firstAttribute="centerX" secondItem="G6v-4C-r3b" secondAttribute="centerX" id="7SA-nW-lRg"/>
                             <constraint firstItem="0Fw-Uf-doG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8g8-My-BaD"/>
                             <constraint firstItem="Wff-gj-NOy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Fj-hs-y3e"/>
+                            <constraint firstItem="5JH-pI-3Fk" firstAttribute="leading" secondItem="G6v-4C-r3b" secondAttribute="leading" id="BWd-Pv-OzA"/>
+                            <constraint firstItem="L5x-gx-zJO" firstAttribute="top" secondItem="Taj-BC-Ocd" secondAttribute="bottom" constant="5" id="Cyf-Zf-kcB"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wff-gj-NOy" secondAttribute="bottom" id="GLi-Ox-9Ud"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QKL-b4-glc" secondAttribute="trailing" constant="12" id="Kqn-zo-7D8"/>
                             <constraint firstItem="Taj-BC-Ocd" firstAttribute="top" secondItem="0Fw-Uf-doG" secondAttribute="bottom" constant="15" id="KvC-fk-dGB"/>
+                            <constraint firstItem="5JH-pI-3Fk" firstAttribute="width" secondItem="G6v-4C-r3b" secondAttribute="width" id="P0N-Z1-CHp"/>
                             <constraint firstItem="0Fw-Uf-doG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="Tyy-Ll-xVU"/>
+                            <constraint firstItem="L5x-gx-zJO" firstAttribute="centerX" secondItem="Taj-BC-Ocd" secondAttribute="centerX" id="bha-F8-1xN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Wff-gj-NOy" secondAttribute="trailing" id="cRE-eb-0Np"/>
+                            <constraint firstItem="L5x-gx-zJO" firstAttribute="leading" secondItem="Taj-BC-Ocd" secondAttribute="leading" id="hAe-b4-aC8"/>
                             <constraint firstItem="Wff-gj-NOy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="heJ-Jd-C4O"/>
                             <constraint firstItem="G6v-4C-r3b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="38" id="miA-gs-qHl"/>
                             <constraint firstItem="QKL-b4-glc" firstAttribute="centerY" secondItem="0Fw-Uf-doG" secondAttribute="centerY" id="pva-oA-VqZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Taj-BC-Ocd" secondAttribute="trailing" constant="58" id="unp-cf-L6p"/>
                             <constraint firstItem="G6v-4C-r3b" firstAttribute="top" secondItem="0Fw-Uf-doG" secondAttribute="bottom" constant="15" id="zSi-th-v7j"/>
+                            <constraint firstItem="L5x-gx-zJO" firstAttribute="top" secondItem="Taj-BC-Ocd" secondAttribute="bottom" constant="5" id="zgy-V2-uAS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7FM-Pr-OrW"/>
@@ -142,7 +157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.5" y="232.5"/>
+            <point key="canvasLocation" x="1229.5" y="167.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IAr-ZH-Abo">
@@ -150,7 +165,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LaK-DL-s0E" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QDP-ot-gN4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -166,9 +181,4 @@
     <resources>
         <image name="mic_0" width="128" height="128"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
-    </simulatedMetricsContainer>
 </document>

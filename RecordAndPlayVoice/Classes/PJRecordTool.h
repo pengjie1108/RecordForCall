@@ -1,5 +1,5 @@
 //
-//  LVRecordTool.h
+//  PJRecordTool.h
 //  RecordAndPlayVoice
 //
 //  Created by pengjie on 2016/11/27.
@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
-@class LVRecordTool;
-@protocol LVRecordToolDelegate <NSObject>
+@class PJRecordTool;
+@protocol PJRecordToolDelegate <NSObject>
 
 @optional
-- (void)recordTool:(LVRecordTool *)recordTool didstartRecoring:(int)no;
+- (void)recordTool:(PJRecordTool *)recordTool didstartRecoring:(int)no;
 
 @end
 
-@interface LVRecordTool : NSObject
+@interface PJRecordTool : NSObject
 
 
 /** 录音工具的单例 */
@@ -49,7 +49,7 @@
 /** 播放器对象 */
 @property (nonatomic, strong) AVAudioPlayer *player;
 /** 更新图片的代理 */
-@property (nonatomic, assign) id<LVRecordToolDelegate> delegate;
+@property (nonatomic, assign) id<PJRecordToolDelegate> delegate;
 
 @property (nonatomic,strong) NSMutableArray *voiceArray;
 

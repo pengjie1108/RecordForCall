@@ -10,14 +10,12 @@
 #define kFilePath ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"voicelist.data"])
 
 #import "ViewController.h"
-#import "LVRecordTool.h"
-//#import <CoreTelephony/CTCallCenter.h>
-//#import <CoreTelephony/CTCall.h>
+#import "PJRecordTool.h"
 
-@interface ViewController ()<LVRecordToolDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<PJRecordToolDelegate,UITableViewDelegate,UITableViewDataSource>
 
 /** 录音工具 */
-@property (nonatomic, strong) LVRecordTool *recordTool;
+@property (nonatomic, strong) PJRecordTool *recordTool;
 
 /** 停止按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *stopBtn;
@@ -37,8 +35,6 @@
 /** 声音数组 */
 @property (nonatomic,strong) NSMutableArray *voiceArray;
 
-
-//@property (strong, nonatomic) CTCallCenter *callCenter;
 
 @end
 
@@ -67,7 +63,7 @@ static NSString *identifier = @"cc";
     
     self.lineOnLabel.hidden = YES;
     
-    self.recordTool = [LVRecordTool sharedRecordTool];
+    self.recordTool = [PJRecordTool sharedRecordTool];
     
     self.imageView.hidden = NO;
     
@@ -78,68 +74,24 @@ static NSString *identifier = @"cc";
     [self.voiceListView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
     
     // 初始化监听事件
-    
     [self setup];
-    
-//    [self setCall];
-}
-
-- (IBAction)zanting:(id)sender {
-    [self.recordTool pauseRecording];
-}
-
-- (IBAction)jixu:(id)sender {
-    [self.recordTool resumeRecording];
-
 }
 
 
+/**
+ 初始化
+ */
 - (void)setup {
-    
-    self.recordBtn.layer.cornerRadius = 10;
-    
-    [self.recordBtn setTitle:@"按下录音" forState:UIControlStateNormal];
-    [self.recordBtn setTitle:@"开始录音" forState:UIControlStateHighlighted];
-    [self.recordBtn setTitle:@"录音中" forState:UIControlStateSelected];
-    
-    
     self.recordTool.delegate = self;
-    
 }
-
-//- (void)setCall{
-//    
-//    CTCallCenter *callCenter = [[CTCallCenter alloc] init];
-//    
-//    callCenter.callEventHandler = ^(CTCall* call) {
-//        if ([call.callState isEqualToString:CTCallStateDisconnected])
-//        {
-//            NSLog(@"挂断了电话咯Call has been disconnected");
-//        }
-//        else if ([call.callState isEqualToString:CTCallStateConnected])
-//        {
-//            NSLog(@"电话通了Call has just been connected");
-//        }
-//        else if([call.callState isEqualToString:CTCallStateIncoming])
-//        {
-//            NSLog(@"来电话了Call is incoming");
-//            
-//        }
-//        else if ([call.callState isEqualToString:CTCallStateDialing])
-//        {
-//            NSLog(@"正在播出电话call is dialing");
-//        }
-//        else
-//        {
-//            NSLog(@"嘛都没做Nothing is done");
-//        }
-//    };
-//
-//}
 
 #pragma mark - 录音按钮事件
-
 //按下录制按钮
+/**
+ 开始录制
+
+ @param sender 按钮
+ */
 - (IBAction)startRecord:(id)sender {
     
     [self.recordTool startRecording];
@@ -150,16 +102,42 @@ static NSString *identifier = @"cc";
 }
 
 //按下停止按钮
+/**
+ 结束录制
+
+ @param sender 按钮
+ */
 - (IBAction)stop:(id)sender {
     
     self.lineOnLabel.hidden = YES;
     
     self.imageView.image = [UIImage imageNamed:@"mic_0"];
     
-      [self.recordTool stopRecording];
+    [self.recordTool stopRecording];
     
-            [self alertWithMessage:@"结束录音,请保存文件"];
+    [self alertWithMessage:@"结束录音,请保存文件"];
     
+}
+
+/**
+ 暂停
+
+ @param sender 按钮
+ */
+- (IBAction)zanting:(id)sender {
+    [self.recordTool pauseRecording];
+    self.lineOnLabel.text = @"已暂停";
+}
+
+/**
+ 继续
+
+ @param sender 按钮
+ */
+- (IBAction)jixu:(id)sender {
+    [self.recordTool resumeRecording];
+    self.lineOnLabel.text = @"录音中..";
+
 }
 
 #pragma mark - 弹窗提示
@@ -171,17 +149,17 @@ static NSString *identifier = @"cc";
 
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        NSString * fullPath =[[LVRecordTool sharedRecordTool].voiceArray lastObject];
+    NSString * fullPath =[[PJRecordTool sharedRecordTool].voiceArray lastObject];
         
-         NSArray *lastArray = [fullPath componentsSeparatedByString:@"/Documents/"];
+    NSArray *lastArray = [fullPath componentsSeparatedByString:@"/Documents/"];
         
-        [self.voiceArray addObject:lastArray.lastObject];
-        //存档
-         [NSKeyedArchiver archiveRootObject:self.voiceArray toFile:kFilePath];
-        //刷新
-         [self.voiceListView reloadData];
+    [self.voiceArray addObject:lastArray.lastObject];
+    //存档
+    [NSKeyedArchiver archiveRootObject:self.voiceArray toFile:kFilePath];
+    //刷新
+    [self.voiceListView reloadData];
         
-         [self.recordTool setValue:nil forKey:@"recorder"];
+    [self.recordTool setValue:nil forKey:@"recorder"];
         
     }];
     
@@ -189,9 +167,9 @@ static NSString *identifier = @"cc";
     
     [alertController addAction:okAction];
     
-//       [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
-//        textField.placeholder = @"请输入文件名";
-//    }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        textField.placeholder = @"请输入文件名";
+    }];
     
     [self presentViewController:alertController animated:YES completion:nil];
     
@@ -207,9 +185,9 @@ static NSString *identifier = @"cc";
     
 }
 
-#pragma mark - LVRecordToolDelegate
+#pragma mark - PJRecordToolDelegate
 
-- (void)recordTool:(LVRecordTool *)recordTool didstartRecoring:(int)no {
+- (void)recordTool:(PJRecordTool *)recordTool didstartRecoring:(int)no {
     
     NSString *imageName = [NSString stringWithFormat:@"mic_%d", no];
     

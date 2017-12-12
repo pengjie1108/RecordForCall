@@ -13,7 +13,7 @@
 		1280A2AA1AB1745C0020C955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2A81AB1745C0020C955 /* Main.storyboard */; };
 		1280A2AC1AB1745C0020C955 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2AB1AB1745C0020C955 /* Images.xcassets */; };
 		1280A2BB1AB1745C0020C955 /* RecordAndPlayVoiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */; };
-		12DD4E0D1AB3D4470091379D /* LVRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4E0C1AB3D4470091379D /* LVRecordTool.m */; };
+		12DD4E0D1AB3D4470091379D /* PJRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4E0C1AB3D4470091379D /* PJRecordTool.m */; };
 		393425CC1DEDACE00033AE07 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393425CB1DEDACE00033AE07 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +40,8 @@
 		1280A2B41AB1745C0020C955 /* RecordAndPlayVoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordAndPlayVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1280A2B91AB1745C0020C955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAndPlayVoiceTests.m; sourceTree = "<group>"; };
-		12DD4E0B1AB3D4470091379D /* LVRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVRecordTool.h; sourceTree = "<group>"; };
-		12DD4E0C1AB3D4470091379D /* LVRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVRecordTool.m; sourceTree = "<group>"; };
+		12DD4E0B1AB3D4470091379D /* PJRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJRecordTool.h; sourceTree = "<group>"; };
+		12DD4E0C1AB3D4470091379D /* PJRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJRecordTool.m; sourceTree = "<group>"; };
 		393425CB1DEDACE00033AE07 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -127,8 +127,8 @@
 		12DD4E0A1AB3D4290091379D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				12DD4E0B1AB3D4470091379D /* LVRecordTool.h */,
-				12DD4E0C1AB3D4470091379D /* LVRecordTool.m */,
+				12DD4E0B1AB3D4470091379D /* PJRecordTool.h */,
+				12DD4E0C1AB3D4470091379D /* PJRecordTool.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 		1280A2931AB1745C0020C955 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = liuchunlao;
 				TargetAttributes = {
 					1280A29A1AB1745C0020C955 = {
@@ -241,7 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12DD4E0D1AB3D4470091379D /* LVRecordTool.m in Sources */,
+				12DD4E0D1AB3D4470091379D /* PJRecordTool.m in Sources */,
 				1280A2A71AB1745C0020C955 /* ViewController.m in Sources */,
 				1280A2A41AB1745C0020C955 /* AppDelegate.m in Sources */,
 				1280A2A11AB1745C0020C955 /* main.m in Sources */,
@@ -286,20 +286,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -328,13 +338,21 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -342,6 +360,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -398,6 +417,7 @@
 				);
 				INFOPLIST_FILE = RecordAndPlayVoiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordAndPlayVoice.app/RecordAndPlayVoice";
 			};
@@ -413,6 +433,7 @@
 				);
 				INFOPLIST_FILE = RecordAndPlayVoiceTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordAndPlayVoice.app/RecordAndPlayVoice";
 			};
