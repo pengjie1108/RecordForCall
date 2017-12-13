@@ -12,7 +12,6 @@
 		1280A2A71AB1745C0020C955 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1280A2A61AB1745C0020C955 /* ViewController.m */; };
 		1280A2AA1AB1745C0020C955 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2A81AB1745C0020C955 /* Main.storyboard */; };
 		1280A2AC1AB1745C0020C955 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2AB1AB1745C0020C955 /* Images.xcassets */; };
-		1280A2BB1AB1745C0020C955 /* RecordAndPlayVoiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */; };
 		12DD4E0D1AB3D4470091379D /* PJRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4E0C1AB3D4470091379D /* PJRecordTool.m */; };
 		393425CC1DEDACE00033AE07 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393425CB1DEDACE00033AE07 /* CoreTelephony.framework */; };
 /* End PBXBuildFile section */
@@ -28,7 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1280A29B1AB1745C0020C955 /* RecordAndPlayVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecordAndPlayVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1280A29B1AB1745C0020C955 /* RecorderForCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecorderForCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1280A29F1AB1745C0020C955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1280A2A01AB1745C0020C955 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1280A2A21AB1745C0020C955 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,9 +36,7 @@
 		1280A2A61AB1745C0020C955 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1280A2A91AB1745C0020C955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1280A2AB1AB1745C0020C955 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1280A2B41AB1745C0020C955 /* RecordAndPlayVoiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordAndPlayVoiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1280A2B91AB1745C0020C955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordAndPlayVoiceTests.m; sourceTree = "<group>"; };
+		1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecorderForCallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DD4E0B1AB3D4470091379D /* PJRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJRecordTool.h; sourceTree = "<group>"; };
 		12DD4E0C1AB3D4470091379D /* PJRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJRecordTool.m; sourceTree = "<group>"; };
 		393425CB1DEDACE00033AE07 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -67,8 +64,7 @@
 		1280A2921AB1745C0020C955 = {
 			isa = PBXGroup;
 			children = (
-				1280A29D1AB1745C0020C955 /* RecordAndPlayVoice */,
-				1280A2B71AB1745C0020C955 /* RecordAndPlayVoiceTests */,
+				1280A29D1AB1745C0020C955 /* RecorderForCall */,
 				1280A29C1AB1745C0020C955 /* Products */,
 				393425CA1DEDACE00033AE07 /* Frameworks */,
 			);
@@ -77,25 +73,26 @@
 		1280A29C1AB1745C0020C955 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1280A29B1AB1745C0020C955 /* RecordAndPlayVoice.app */,
-				1280A2B41AB1745C0020C955 /* RecordAndPlayVoiceTests.xctest */,
+				1280A29B1AB1745C0020C955 /* RecorderForCall.app */,
+				1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1280A29D1AB1745C0020C955 /* RecordAndPlayVoice */ = {
+		1280A29D1AB1745C0020C955 /* RecorderForCall */ = {
 			isa = PBXGroup;
 			children = (
-				12DD4E0A1AB3D4290091379D /* Classes */,
 				1280A2A21AB1745C0020C955 /* AppDelegate.h */,
 				1280A2A31AB1745C0020C955 /* AppDelegate.m */,
 				1280A2A51AB1745C0020C955 /* ViewController.h */,
 				1280A2A61AB1745C0020C955 /* ViewController.m */,
+				12DD4E0B1AB3D4470091379D /* PJRecordTool.h */,
+				12DD4E0C1AB3D4470091379D /* PJRecordTool.m */,
 				1280A2A81AB1745C0020C955 /* Main.storyboard */,
 				1280A2AB1AB1745C0020C955 /* Images.xcassets */,
 				1280A29E1AB1745C0020C955 /* Supporting Files */,
 			);
-			path = RecordAndPlayVoice;
+			path = RecorderForCall;
 			sourceTree = "<group>";
 		};
 		1280A29E1AB1745C0020C955 /* Supporting Files */ = {
@@ -105,32 +102,6 @@
 				1280A2A01AB1745C0020C955 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		1280A2B71AB1745C0020C955 /* RecordAndPlayVoiceTests */ = {
-			isa = PBXGroup;
-			children = (
-				1280A2BA1AB1745C0020C955 /* RecordAndPlayVoiceTests.m */,
-				1280A2B81AB1745C0020C955 /* Supporting Files */,
-			);
-			path = RecordAndPlayVoiceTests;
-			sourceTree = "<group>";
-		};
-		1280A2B81AB1745C0020C955 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1280A2B91AB1745C0020C955 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		12DD4E0A1AB3D4290091379D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				12DD4E0B1AB3D4470091379D /* PJRecordTool.h */,
-				12DD4E0C1AB3D4470091379D /* PJRecordTool.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		393425CA1DEDACE00033AE07 /* Frameworks */ = {
@@ -144,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1280A29A1AB1745C0020C955 /* RecordAndPlayVoice */ = {
+		1280A29A1AB1745C0020C955 /* RecorderForCall */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1280A2BE1AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecordAndPlayVoice" */;
+			buildConfigurationList = 1280A2BE1AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCall" */;
 			buildPhases = (
 				1280A2971AB1745C0020C955 /* Sources */,
 				1280A2981AB1745C0020C955 /* Frameworks */,
@@ -156,14 +127,14 @@
 			);
 			dependencies = (
 			);
-			name = RecordAndPlayVoice;
+			name = RecorderForCall;
 			productName = RecordAndPlayVoice;
-			productReference = 1280A29B1AB1745C0020C955 /* RecordAndPlayVoice.app */;
+			productReference = 1280A29B1AB1745C0020C955 /* RecorderForCall.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1280A2B31AB1745C0020C955 /* RecordAndPlayVoiceTests */ = {
+		1280A2B31AB1745C0020C955 /* RecorderForCallTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecordAndPlayVoiceTests" */;
+			buildConfigurationList = 1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCallTests" */;
 			buildPhases = (
 				1280A2B01AB1745C0020C955 /* Sources */,
 				1280A2B11AB1745C0020C955 /* Frameworks */,
@@ -174,9 +145,9 @@
 			dependencies = (
 				1280A2B61AB1745C0020C955 /* PBXTargetDependency */,
 			);
-			name = RecordAndPlayVoiceTests;
+			name = RecorderForCallTests;
 			productName = RecordAndPlayVoiceTests;
-			productReference = 1280A2B41AB1745C0020C955 /* RecordAndPlayVoiceTests.xctest */;
+			productReference = 1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +169,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1280A2961AB1745C0020C955 /* Build configuration list for PBXProject "RecordAndPlayVoice" */;
+			buildConfigurationList = 1280A2961AB1745C0020C955 /* Build configuration list for PBXProject "RecorderForCall" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,8 +182,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1280A29A1AB1745C0020C955 /* RecordAndPlayVoice */,
-				1280A2B31AB1745C0020C955 /* RecordAndPlayVoiceTests */,
+				1280A29A1AB1745C0020C955 /* RecorderForCall */,
+				1280A2B31AB1745C0020C955 /* RecorderForCallTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,7 +223,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1280A2BB1AB1745C0020C955 /* RecordAndPlayVoiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +231,7 @@
 /* Begin PBXTargetDependency section */
 		1280A2B61AB1745C0020C955 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1280A29A1AB1745C0020C955 /* RecordAndPlayVoice */;
+			target = 1280A29A1AB1745C0020C955 /* RecorderForCall */;
 			targetProxy = 1280A2B51AB1745C0020C955 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -419,7 +389,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordAndPlayVoice.app/RecordAndPlayVoice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecorderForCall.app/RecorderForCall";
 			};
 			name = Debug;
 		};
@@ -435,14 +405,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecordAndPlayVoice.app/RecordAndPlayVoice";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecorderForCall.app/RecorderForCall";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1280A2961AB1745C0020C955 /* Build configuration list for PBXProject "RecordAndPlayVoice" */ = {
+		1280A2961AB1745C0020C955 /* Build configuration list for PBXProject "RecorderForCall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1280A2BC1AB1745C0020C955 /* Debug */,
@@ -451,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1280A2BE1AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecordAndPlayVoice" */ = {
+		1280A2BE1AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCall" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1280A2BF1AB1745C0020C955 /* Debug */,
@@ -460,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecordAndPlayVoiceTests" */ = {
+		1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCallTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1280A2C21AB1745C0020C955 /* Debug */,
