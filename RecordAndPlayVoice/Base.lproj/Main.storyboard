@@ -101,24 +101,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JH-pI-3Fk">
-                                <rect key="frame" x="38" y="304" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oLd-JU-cYG"/>
-                                </constraints>
-                                <state key="normal" title="暂停"/>
-                                <connections>
-                                    <action selector="zanting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEN-8A-BZv"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5x-gx-zJO">
                                 <rect key="frame" x="201" y="304" width="101" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QIj-Ju-sj8"/>
                                 </constraints>
-                                <state key="normal" title="继续"/>
+                                <state key="normal" title="继续录制"/>
                                 <connections>
                                     <action selector="jixu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iwB-IQ-stU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JH-pI-3Fk">
+                                <rect key="frame" x="38" y="304" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oLd-JU-cYG"/>
+                                </constraints>
+                                <state key="normal" title="暂停录制"/>
+                                <connections>
+                                    <action selector="zanting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEN-8A-BZv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,8 +148,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="7FM-Pr-OrW"/>
                     <connections>
+                        <outlet property="goOnBtn" destination="L5x-gx-zJO" id="mVR-Zm-oTz"/>
                         <outlet property="imageView" destination="0Fw-Uf-doG" id="W7z-qT-E0m"/>
                         <outlet property="lineOnLabel" destination="QKL-b4-glc" id="WO8-P3-dj3"/>
+                        <outlet property="pauseBtn" destination="5JH-pI-3Fk" id="6hU-h5-R7D"/>
                         <outlet property="recordBtn" destination="G6v-4C-r3b" id="Zcc-O2-t40"/>
                         <outlet property="stopBtn" destination="Taj-BC-Ocd" id="Wbe-Ua-cJD"/>
                         <outlet property="voiceListView" destination="Wff-gj-NOy" id="53O-77-DSm"/>

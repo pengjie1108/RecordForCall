@@ -35,9 +35,9 @@
 
 - (void)startRecording {
     
-    // 录音时停止播放 删除曾经生成的文件
+    // 录音时停止播放
     [self stopPlaying];
-    //    [self destructionRecordingFile];
+    // [self destructionRecordingFile];
     // 真机环境下需要的代码
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *sessionError;
@@ -63,7 +63,6 @@
 }
 
 - (void)updateImage {
-    
     
     [self.recorder updateMeters];
     
@@ -96,12 +95,11 @@
 }
 
 
-/* stops recording. closes the file. */
 - (void)stopRecording {
     if ([_recorder isRecording]) {
         [_recorder stop];
     }
-//    [self.timer invalidate];
+    [self.timer invalidate];
 }
 
 
@@ -113,27 +111,27 @@
     [_recorder pause];
     }
     
-//    self.pauseTime = _recorder.currentTime;
-    
 }
 
 - (void)resumeRecording{
     if (_recorder) {
     [_recorder record];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(updateImage) userInfo:nil repeats:YES];
+        
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+        
+    [timer fire];
+        
+    self.timer = timer;
+        
     }
-    
-//    NSTimer *timer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(updateImage) userInfo:nil repeats:YES];
-//    
-//    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
-//    
-//    [timer fire];
-    
-//    self.timer = timer;
 }
 
 - (void)playRecordingFile:(NSURL *)fileUrl {
     // 播放时停止录音
-    [_recorder stop];
+    if ([_recorder isRecording]) {
+        [_recorder stop];
+    }
     
     // 正在播放就返回
     if ([self.player isPlaying]) return;

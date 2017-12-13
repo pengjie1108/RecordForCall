@@ -17,24 +17,24 @@
 /** 录音工具 */
 @property (nonatomic, strong) PJRecordTool *recordTool;
 
-/** 停止按钮 */
-@property (weak, nonatomic) IBOutlet UIButton *stopBtn;
-
 /** 录音时的图片 */
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
-/** 录音按钮 */
-@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
-
-/** 播放列表 */
-@property (weak, nonatomic) IBOutlet UITableView *voiceListView;
-
 /** 录音中的提示Label*/
 @property (weak, nonatomic) IBOutlet UILabel *lineOnLabel;
-
-/** 声音数组 */
+/** 停止按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *stopBtn;
+/** 录音按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
+/** 暂停按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *pauseBtn;
+/** 继续录制按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *goOnBtn;
+/** 播放列表 */
+@property (weak, nonatomic) IBOutlet UITableView *voiceListView;
+/** 声音存放数组 */
 @property (nonatomic,strong) NSMutableArray *voiceArray;
-
+/** 声音文件名数组 */
+@property (nonatomic,strong) NSMutableArray *voiceNameArray;
 
 @end
 
@@ -43,13 +43,11 @@ static NSString *identifier = @"cc";
 @implementation ViewController
 
 - (NSMutableArray *)voiceArray {
+    // 如果是第一次启动,
     if (nil == _voiceArray) {
-        
-        // 如果是第一次启动, 该路径下, 没有数据, 导致_dataArray为空
         _voiceArray = [NSKeyedUnarchiver unarchiveObjectWithFile:kFilePath];
-        
+        //初始化
         if (_voiceArray.count == 0) {
-            // 没有读取到数据
             _voiceArray = [NSMutableArray array];
         }
     }
@@ -64,6 +62,12 @@ static NSString *identifier = @"cc";
     self.lineOnLabel.hidden = YES;
     
     self.recordTool = [PJRecordTool sharedRecordTool];
+    
+    self.stopBtn.enabled = NO;
+    
+    self.pauseBtn.enabled = NO;
+    
+    self.goOnBtn.enabled = NO;
     
     self.imageView.hidden = NO;
     
@@ -99,6 +103,14 @@ static NSString *identifier = @"cc";
     self.lineOnLabel.textColor = [UIColor redColor];
     
     self.lineOnLabel.hidden = NO;
+    
+    self.stopBtn.enabled = YES;
+    
+    self.pauseBtn.enabled = YES;
+    
+    self.goOnBtn.enabled = NO;
+    
+    self.recordBtn.enabled = NO;
 }
 
 //按下停止按钮
@@ -117,6 +129,14 @@ static NSString *identifier = @"cc";
     
     [self alertWithMessage:@"结束录音,请保存文件"];
     
+    self.stopBtn.enabled = NO;
+    
+    self.pauseBtn.enabled = NO;
+    
+    self.goOnBtn.enabled = NO;
+    
+    self.recordBtn.enabled = YES;
+    
 }
 
 /**
@@ -125,8 +145,19 @@ static NSString *identifier = @"cc";
  @param sender 按钮
  */
 - (IBAction)zanting:(id)sender {
+    
     [self.recordTool pauseRecording];
+    
     self.lineOnLabel.text = @"已暂停";
+    
+    self.recordBtn.enabled = NO;
+    
+    self.stopBtn.enabled = YES;
+    
+    self.pauseBtn.enabled = NO;
+    
+    self.goOnBtn.enabled = YES;
+    
 }
 
 /**
@@ -135,8 +166,18 @@ static NSString *identifier = @"cc";
  @param sender 按钮
  */
 - (IBAction)jixu:(id)sender {
+    
     [self.recordTool resumeRecording];
+    
     self.lineOnLabel.text = @"录音中..";
+    
+    self.stopBtn.enabled = YES;
+    
+    self.pauseBtn.enabled = YES;
+    
+    self.goOnBtn.enabled = NO;
+    
+    self.recordBtn.enabled = NO;
 
 }
 
@@ -168,7 +209,11 @@ static NSString *identifier = @"cc";
     [alertController addAction:okAction];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
+        
         textField.placeholder = @"请输入文件名";
+        
+        [self.voiceNameArray addObject:textField.text];
+        
     }];
     
     [self presentViewController:alertController animated:YES completion:nil];
