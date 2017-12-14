@@ -43,50 +43,37 @@ static NSString *identifier = @"cc";
 @implementation ViewController
 
 - (NSMutableArray *)voiceArray {
-    // 如果是第一次启动,
+    // 如果是第一次启动
     if (nil == _voiceArray) {
         _voiceArray = [NSKeyedUnarchiver unarchiveObjectWithFile:kFilePath];
         //初始化
         if (_voiceArray.count == 0) {
             _voiceArray = [NSMutableArray array];
+            _voiceNameArray = [NSMutableArray array];
         }
     }
     return _voiceArray;
 }
 
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    self.lineOnLabel.hidden = YES;
-    
+    self.navigationItem.title = @"录音器";
     self.recordTool = [PJRecordTool sharedRecordTool];
     
-    self.stopBtn.enabled = NO;
-    
-    self.pauseBtn.enabled = NO;
-    
-    self.goOnBtn.enabled = NO;
-    
+    self.lineOnLabel.hidden = YES;
     self.imageView.hidden = NO;
     
-    self.voiceListView.dataSource = self;
+    self.recordBtn.enabled = YES;
+    self.stopBtn.enabled = NO;
+    self.pauseBtn.enabled = NO;
+    self.goOnBtn.enabled = NO;
     
+    self.voiceListView.dataSource = self;
     self.voiceListView.delegate = self;
+    self.recordTool.delegate = self;
     
     [self.voiceListView registerClass:[UITableViewCell class] forCellReuseIdentifier:identifier];
-    
-    // 初始化监听事件
-    [self setup];
-}
-
-
-/**
- 初始化
- */
-- (void)setup {
-    self.recordTool.delegate = self;
 }
 
 #pragma mark - 录音按钮事件
@@ -97,19 +84,14 @@ static NSString *identifier = @"cc";
  @param sender 按钮
  */
 - (IBAction)startRecord:(id)sender {
-    
     [self.recordTool startRecording];
     
     self.lineOnLabel.textColor = [UIColor redColor];
-    
     self.lineOnLabel.hidden = NO;
     
     self.stopBtn.enabled = YES;
-    
     self.pauseBtn.enabled = YES;
-    
     self.goOnBtn.enabled = NO;
-    
     self.recordBtn.enabled = NO;
 }
 
@@ -120,23 +102,17 @@ static NSString *identifier = @"cc";
  @param sender 按钮
  */
 - (IBAction)stop:(id)sender {
-    
-    self.lineOnLabel.hidden = YES;
-    
-    self.imageView.image = [UIImage imageNamed:@"mic_0"];
-    
     [self.recordTool stopRecording];
     
-    [self alertWithMessage:@"结束录音,请保存文件"];
+    self.lineOnLabel.hidden = YES;
+    self.imageView.image = [UIImage imageNamed:@"mic_0"];
     
     self.stopBtn.enabled = NO;
-    
     self.pauseBtn.enabled = NO;
-    
     self.goOnBtn.enabled = NO;
-    
     self.recordBtn.enabled = YES;
     
+    [self alertWithMessage:@"结束录音,请保存文件"];
 }
 
 /**
@@ -148,16 +124,13 @@ static NSString *identifier = @"cc";
     
     [self.recordTool pauseRecording];
     
+    self.lineOnLabel.textColor = [UIColor greenColor];
     self.lineOnLabel.text = @"已暂停";
     
     self.recordBtn.enabled = NO;
-    
     self.stopBtn.enabled = YES;
-    
     self.pauseBtn.enabled = NO;
-    
     self.goOnBtn.enabled = YES;
-    
 }
 
 /**
@@ -166,17 +139,14 @@ static NSString *identifier = @"cc";
  @param sender 按钮
  */
 - (IBAction)jixu:(id)sender {
-    
     [self.recordTool resumeRecording];
     
+    self.lineOnLabel.textColor = [UIColor redColor];
     self.lineOnLabel.text = @"录音中..";
     
     self.stopBtn.enabled = YES;
-    
     self.pauseBtn.enabled = YES;
-    
     self.goOnBtn.enabled = NO;
-    
     self.recordBtn.enabled = NO;
 
 }
@@ -186,46 +156,37 @@ static NSString *identifier = @"cc";
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message: message preferredStyle:UIAlertControllerStyleAlert];
     
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * textField){
+        textField.placeholder = @"请输入文件名";
+    }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-
+    
+     __weak typeof(alertController) weakAlert = alertController;
+    
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"保存" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+       
         
-    NSString * fullPath =[[PJRecordTool sharedRecordTool].voiceArray lastObject];
+       NSString *voiceName = weakAlert.textFields.firstObject.text;
+       [self.voiceNameArray addObject:voiceName];
         
-    NSArray *lastArray = [fullPath componentsSeparatedByString:@"/Documents/"];
-        
-    [self.voiceArray addObject:lastArray.lastObject];
-    //存档
-    [NSKeyedArchiver archiveRootObject:self.voiceArray toFile:kFilePath];
-    //刷新
-    [self.voiceListView reloadData];
-        
-    [self.recordTool setValue:nil forKey:@"recorder"];
-        
+       NSString * fullPath =[[PJRecordTool sharedRecordTool].voiceArray lastObject];
+       NSArray *lastArray = [fullPath componentsSeparatedByString:@"/Documents/"];
+       [self.voiceArray addObject:lastArray.lastObject];
+       //存档
+       [NSKeyedArchiver archiveRootObject:self.voiceArray toFile:kFilePath];
+       //刷新
+       [self.voiceListView reloadData];
+       [self.recordTool setValue:nil forKey:@"recorder"];
     }];
     
     [alertController addAction:cancelAction];
-    
     [alertController addAction:okAction];
-    
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField){
-        
-        textField.placeholder = @"请输入文件名";
-        
-        [self.voiceNameArray addObject:textField.text];
-        
-    }];
-    
     [self presentViewController:alertController animated:YES completion:nil];
-    
-    
-    
 }
 
 - (void)dealloc {
     
     if ([self.recordTool.recorder isRecording]) [self.recordTool stopPlaying];
-    
     if ([self.recordTool.player isPlaying]) [self.recordTool stopRecording];
     
 }
@@ -235,38 +196,27 @@ static NSString *identifier = @"cc";
 - (void)recordTool:(PJRecordTool *)recordTool didstartRecoring:(int)no {
     
     NSString *imageName = [NSString stringWithFormat:@"mic_%d", no];
-    
     self.imageView.image = [UIImage imageNamed:imageName];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return self.voiceArray.count;
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
     cell.textLabel.text = self.voiceArray[indexPath.row];
-   
     return cell;
-    
-    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // 1.获取沙盒地址
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
     NSString *pathLast = self.voiceArray[indexPath.row];
-    
     NSString *filePath = [path stringByAppendingPathComponent:pathLast];
-
     NSURL *fileUrl = [NSURL fileURLWithPath:filePath];
- 
     [self.recordTool playRecordingFile:fileUrl];
     
 }
@@ -278,8 +228,7 @@ static NSString *identifier = @"cc";
         // 删除数据
         // 移除模型中的数据
         [self.voiceArray removeObjectAtIndex:indexPath.row];
-        
-        
+        [self.voiceNameArray removeObjectAtIndex:indexPath.row];
         // 从tableView 中删除数据
         [self.voiceListView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
         

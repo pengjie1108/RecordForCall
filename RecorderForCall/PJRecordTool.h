@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @class PJRecordTool;
+
 @protocol PJRecordToolDelegate <NSObject>
 
 @optional

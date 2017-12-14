@@ -70,7 +70,7 @@
     
     float result  = 10 * (float)lowPassResults;
     
-    NSLog(@"%f", result);
+//    NSLog(@"%f", result);
     
     int no = 0;
     if (result > 0 && result <= 1.3) {

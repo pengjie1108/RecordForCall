@@ -14,21 +14,11 @@
 		1280A2AC1AB1745C0020C955 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1280A2AB1AB1745C0020C955 /* Images.xcassets */; };
 		12DD4E0D1AB3D4470091379D /* PJRecordTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DD4E0C1AB3D4470091379D /* PJRecordTool.m */; };
 		393425CC1DEDACE00033AE07 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393425CB1DEDACE00033AE07 /* CoreTelephony.framework */; };
+		44B8D9BD1FE110E800F8A368 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44B8D9BC1FE110E800F8A368 /* Info.plist */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		1280A2B51AB1745C0020C955 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1280A2931AB1745C0020C955 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1280A29A1AB1745C0020C955;
-			remoteInfo = RecordAndPlayVoice;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1280A29B1AB1745C0020C955 /* RecorderForCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecorderForCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1280A29F1AB1745C0020C955 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1280A2A01AB1745C0020C955 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1280A2A21AB1745C0020C955 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1280A2A31AB1745C0020C955 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,10 +26,10 @@
 		1280A2A61AB1745C0020C955 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1280A2A91AB1745C0020C955 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1280A2AB1AB1745C0020C955 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecorderForCallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DD4E0B1AB3D4470091379D /* PJRecordTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJRecordTool.h; sourceTree = "<group>"; };
 		12DD4E0C1AB3D4470091379D /* PJRecordTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJRecordTool.m; sourceTree = "<group>"; };
 		393425CB1DEDACE00033AE07 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		44B8D9BC1FE110E800F8A368 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,13 +38,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				393425CC1DEDACE00033AE07 /* CoreTelephony.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1280A2B11AB1745C0020C955 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				1280A29B1AB1745C0020C955 /* RecorderForCall.app */,
-				1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,7 +80,7 @@
 		1280A29E1AB1745C0020C955 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1280A29F1AB1745C0020C955 /* Info.plist */,
+				44B8D9BC1FE110E800F8A368 /* Info.plist */,
 				1280A2A01AB1745C0020C955 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -132,24 +114,6 @@
 			productReference = 1280A29B1AB1745C0020C955 /* RecorderForCall.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1280A2B31AB1745C0020C955 /* RecorderForCallTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCallTests" */;
-			buildPhases = (
-				1280A2B01AB1745C0020C955 /* Sources */,
-				1280A2B11AB1745C0020C955 /* Frameworks */,
-				1280A2B21AB1745C0020C955 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1280A2B61AB1745C0020C955 /* PBXTargetDependency */,
-			);
-			name = RecorderForCallTests;
-			productName = RecordAndPlayVoiceTests;
-			productReference = 1280A2B41AB1745C0020C955 /* RecorderForCallTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,10 +126,6 @@
 					1280A29A1AB1745C0020C955 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = H96A698YS9;
-					};
-					1280A2B31AB1745C0020C955 = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 1280A29A1AB1745C0020C955;
 					};
 				};
 			};
@@ -183,7 +143,6 @@
 			projectRoot = "";
 			targets = (
 				1280A29A1AB1745C0020C955 /* RecorderForCall */,
-				1280A2B31AB1745C0020C955 /* RecorderForCallTests */,
 			);
 		};
 /* End PBXProject section */
@@ -195,13 +154,7 @@
 			files = (
 				1280A2AA1AB1745C0020C955 /* Main.storyboard in Resources */,
 				1280A2AC1AB1745C0020C955 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1280A2B21AB1745C0020C955 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				44B8D9BD1FE110E800F8A368 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,22 +172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1280A2B01AB1745C0020C955 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1280A2B61AB1745C0020C955 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1280A29A1AB1745C0020C955 /* RecorderForCall */;
-			targetProxy = 1280A2B51AB1745C0020C955 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1280A2A81AB1745C0020C955 /* Main.storyboard */ = {
@@ -350,7 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H96A698YS9;
-				INFOPLIST_FILE = RecordAndPlayVoice/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RecorderForCall/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -364,48 +302,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H96A698YS9;
-				INFOPLIST_FILE = RecordAndPlayVoice/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RecorderForCall/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pj.abby.11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		1280A2C21AB1745C0020C955 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RecordAndPlayVoiceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecorderForCall.app/RecorderForCall";
-			};
-			name = Debug;
-		};
-		1280A2C31AB1745C0020C955 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = RecordAndPlayVoiceTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.icfcc.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecorderForCall.app/RecorderForCall";
 			};
 			name = Release;
 		};
@@ -426,15 +328,6 @@
 			buildConfigurations = (
 				1280A2BF1AB1745C0020C955 /* Debug */,
 				1280A2C01AB1745C0020C955 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1280A2C11AB1745C0020C955 /* Build configuration list for PBXNativeTarget "RecorderForCallTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1280A2C21AB1745C0020C955 /* Debug */,
-				1280A2C31AB1745C0020C955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
